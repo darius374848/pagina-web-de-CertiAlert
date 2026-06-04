@@ -54,5 +54,9 @@ Para que la aplicación sea 100% segura y funcional en un entorno de producción
 
 *Esta versión MVP es el escaparate perfecto para "tocar" la solución antes de acometer el desarrollo de la arquitectura técnica pesada.*
 
----
-*Si estás listo para digitalizar tu empresa, descarga la App Beta desde nuestra página web o ponte en contacto con nuestro equipo.*
+### 💬 ¡Queremos escuchar tu opinión!
+
+Al encontrarnos en esta fase temprana de validación, **tu feedback es lo más valioso para nosotros**. 
+Si tienes experiencia en el sector, has sufrido estos problemas, o simplemente se te ocurren ideas y funcionalidades que harían que esta aplicación fuera perfecta:
+
+👉 **¡Anímate a dejarnos un comentario!** Puedes abrir un "Issue" aquí mismo en GitHub para proponer mejoras, debatir sobre la seguridad de la arquitectura, o contarnos si pagarías por esta solución. Toda aportación constructiva es más que bienvenida.
