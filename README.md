@@ -40,4 +40,19 @@ Por solo **30€ al mes**, CertiAlert automatiza todo ese estrés, protege la re
 ¿No crees que la tranquilidad mental de tu empresa y evitar pérdidas económicas gigantescas vale esos 30€?
 
 ---
+
+## ⚠️ Estado actual del proyecto (Prototipo MVP)
+
+**Importante:** La aplicación y el código que se encuentran actualmente en este repositorio representan un **Prototipo de Validación (MVP Visual)**. 
+
+El objetivo principal de esta versión (y del archivo APK descargable) es tener un **primer contacto visual con la idea**, poder interactuar con el diseño de la interfaz y validar el flujo de negocio con potenciales clientes o inversores. **Actualmente no es funcional para operar en una empresa real**.
+
+Para que la aplicación sea 100% segura y funcional en un entorno de producción empresarial, están pendientes de implementar las siguientes fases técnicas:
+*   **Infraestructura Backend:** Conexión real a bases de datos escalables en la nube para guardar y recuperar todos los documentos.
+*   **Seguridad y Cifrado Antibreach:** Implementación de protocolos de seguridad rigurosos (Autenticación OAuth, cifrado de datos personales e infraestructura contra hackeos) imprescindibles por el RGPD.
+*   **Lógica de Negocio Real:** Procesamiento y validación real de los documentos subidos por los trabajadores.
+
+*Esta versión MVP es el escaparate perfecto para "tocar" la solución antes de acometer el desarrollo de la arquitectura técnica pesada.*
+
+---
 *Si estás listo para digitalizar tu empresa, descarga la App Beta desde nuestra página web o ponte en contacto con nuestro equipo.*
