@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CertiAlert - Gestión Inteligente de Certificaciones</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Outfit & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#2563eb",
+                    "tertiary-fixed": "#ffdbcd",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d0e1fb",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f0fb",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface": "#faf8ff",
+                    "on-primary-container": "#eeefff",
+                    "on-surface-variant": "#434655",
+                    "on-surface": "#191b23",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#737686",
+                    "surface-bright": "#faf8ff",
+                    "surface-container-low": "#f3f3fe",
+                    "surface-container-high": "#e7e7f3",
+                    "surface-container-highest": "#e1e2ed",
+                    "surface-container": "#ededf9",
+                    "on-background": "#191b23",
+                    "inverse-primary": "#b4c5ff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-tertiary-container": "#ffede6",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary": "#943700",
+                    "secondary": "#505f76",
+                    "primary": "#004ac6",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "background": "#faf8ff",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d9d9e5",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary-container": "#54647a",
+                    "inverse-surface": "#2e3039",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-tint": "#0053db",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary-container": "#bc4800",
+                    "surface-variant": "#e1e2ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "md": "16px",
+                    "xl": "40px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "2xl": "64px",
+                    "sm": "8px",
+                    "margin-desktop": "32px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Outfit"],
+                    "title-lg": ["Inter"],
+                    "display-lg": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "code": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "code": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #faf8ff;
+        color: #191b23;
+        -webkit-font-smoothing: antialiased;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .luminous-shadow {
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.05), 0 4px 6px -2px rgba(37, 99, 235, 0.02);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(226, 232, 240, 0.5);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="max-w-7xl mx-auto px-margin-desktop flex justify-between items-center h-16">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-container font-headline-md text-headline-md font-bold" data-icon="verified">verified</span>
+<span class="font-headline-md text-headline-md font-bold text-primary-container">CertiAlert</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary font-body-md text-body-md py-1" href="#">Inicio</a>
+<a class="text-secondary hover:text-primary transition-colors duration-200 font-body-md text-body-md py-1" href="#features">Funciones</a>
+<a class="text-secondary hover:text-primary transition-colors duration-200 font-body-md text-body-md py-1" href="#about">Nosotros</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="text-primary font-label-md text-label-md hover:bg-primary-container/10 px-md py-sm rounded-lg transition-colors duration-200">Acceder</button>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md active:scale-95 transition-transform shadow-sm">Get Started</button>
+</div>
+</div>
+</header>
+<main class="pt-2xl">
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-2xl pb-xl md:pt-32 md:pb-2xl">
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-6 space-y-lg z-10">
+<div class="inline-flex items-center gap-xs bg-secondary-container/30 px-sm py-1 rounded-full text-primary border border-primary-fixed">
+<span class="material-symbols-outlined text-[16px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-label-md font-label-md uppercase tracking-wider">Cumplimiento Automatizado</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">
+              Controla los <span class="text-primary-container">vencimientos</span> de tu equipo, evita multas.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+              La plataforma SaaS que automatiza la gestión de licencias, cursos y certificados para empresas de reformas e instalaciones.
+            </p>
+<div class="flex flex-col sm:flex-row gap-md pt-md">
+<a href="CertiAlert.apk" download class="inline-block bg-primary text-on-primary px-xl py-md rounded-xl font-title-lg text-title-lg shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95">
+                Descargar App (Beta)
+              </a>
+<button class="border border-outline-variant text-primary px-xl py-md rounded-xl font-title-lg text-title-lg hover:bg-surface-container-low transition-all">
+                Ver Demo
+              </button>
+</div>
+<div class="flex items-center gap-md pt-lg">
+<div class="flex -space-x-3">
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A close-up high-resolution portrait of a smiling construction project manager wearing a white hard hat. The lighting is bright and natural, reflecting a clean and professional corporate atmosphere with soft blue and white tones in the background. The image conveys trust, efficiency, and modern digital expertise in the SaaS industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwOkJ8JS0mzJH4GyB3uSF0cM-ilUqnlJMtmtjZtTnj9iCIvHwrMa36O4R4-MntBPsekZnJca4UdV1VyUzjxMPmnzPq5PLApyrbH-N_d4u6Hk5JPrFG7puSKrXnn9bdn7H-4FFeywjb_63MSAATCDQYSBTcxftJ7ItQ1veQozx0SnEfcMUaK56iXThJKTr80cpb0xvMlO3yk7a2ZosnJITVaOo8BQE5dHAfpK-G82xeR_OoCQ7vbI-u8I_hKQe7GXVFmeTx96jzajY5"/>
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A portrait of a female technician in a professional navy blue uniform, looking confident and skilled. She is set against a brightly lit, minimalist office environment with a luminous aesthetic. The color palette is dominated by soft whites and electric blue accents, echoing a modern and reliable business service style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcVsVehO9jCO_PEuQdEmCvaucHjztZ0VRdZGW-XIoz5smeqt2X6z4jOIBqGNUUnEKuKbfn4iuBZpDhRp0n6T2eOvuhBJyoreLs0g7gRcWofMSwIs-GOwNZe3VEsT7WR-d33xSIrsOnGlm_CcZYMS67BNKZVZ_gWb9FP4_wDTFbC9r2k-FdiSdF3x0Dh9U4rwq4YWZjYOwTEIum2nxS5eNDOeDz8e2MmTqe3VpNHKhv-JUTtdvGZ8guKwltGYIHNvxyQZFpKY_xcLk0"/>
+<img alt="User" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A professional headshot of a senior compliance officer with a friendly and reliable expression. The background is a blurred, high-end corporate office with large windows and plenty of natural light. The overall mood is airy and luminous, utilizing a sophisticated palette of clean whites and professional blues to signal industry leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxVowDS5jO-4Dv4wY59phJxwLqRwi2fTs8PppWCDEShKGeRLqpDoE0I109GorZV2QiTxwbAUW8_gR_Hu6_xfmcJaFwTMxzr1fgCcpdLFpvmQx_fDH8Wywhght5hh4XUUUQ791gRpEa2KnyHPU1RFKHSPs6l3595PVZ4f8p7TG_5SMnQqv0N2P7dVc3BXDNl322JhecFvS9LQro4jDjQ_t152MUifNxL2Mf224jFC31ilLDmtaF-9ZqgmITOj7OMGi1D8qlw_lxc_MR"/>
+</div>
+<p class="text-body-md text-on-surface-variant">+500 empresas ya confían</p>
+</div>
+</div>
+<div class="md:col-span-6 relative">
+<div class="relative z-10 glass-card p-sm rounded-2xl luminous-shadow overflow-hidden transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant/20">
+<img alt="Dashboard Preview" class="w-full h-auto" data-alt="A clean, abstract 3D digital illustration representing security and compliance. It features translucent glowing glass shields and interconnected nodes floating in a luminous white space. The lighting is soft and ethereal, highlighting a palette of electric blue, silver, and deep navy. The composition is asymmetrical and modern, conveying a sense of advanced technological protection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmZWQj_VuxHfjOgu--fY1B22P4Btmqwfk4o6ipba3xRw8ghwoRG8Pv7pQM6FzibTUcLgs9X7fdfC6GZ96MXtZycRJlpD-0cHlC0-ofTWQZkwbuX0u2ZFwvEO_HUQY_wb2gUWB_opI3qmAbICZ8LOQyYIwp4kf4n-piQYV0KlS5do7tH0i6ZpbSDup1-oVh97P5x9oevRn5DNG--RGUxuCyCA_oitOP3rsNHZUH4HzVbLi5MaAT8D5iEtr0U1dbMR-wdJO4zIAC-XPD"/>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-tertiary-container/10 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</section>
+<!-- ¿Qué es CertiAlert? Section -->
+<section class="py-2xl bg-surface-container-lowest" id="about">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2xl items-center">
+<div class="order-2 md:order-1 relative">
+<div class="aspect-square bg-gradient-to-br from-primary-container/5 to-primary-fixed rounded-[40px] flex items-center justify-center p-xl">
+<div class="w-full h-full glass-card rounded-2xl flex flex-col p-lg gap-md shadow-xl">
+<div class="h-4 w-1/3 bg-primary-container/20 rounded-full"></div>
+<div class="space-y-sm">
+<div class="h-12 w-full bg-surface-container rounded-lg border border-outline-variant/30 flex items-center px-md justify-between">
+<div class="flex items-center gap-sm"><div class="w-6 h-6 rounded bg-primary-container"></div><div class="h-2 w-24 bg-on-surface-variant/20"></div></div>
+<div class="w-4 h-4 rounded-full bg-error"></div>
+</div>
+<div class="h-12 w-full bg-surface-container rounded-lg border border-outline-variant/30 flex items-center px-md justify-between">
+<div class="flex items-center gap-sm"><div class="w-6 h-6 rounded bg-primary-container"></div><div class="h-2 w-24 bg-on-surface-variant/20"></div></div>
+<div class="w-4 h-4 rounded-full bg-primary-container"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Tu cumplimiento, siempre al día.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                CertiAlert centraliza toda la documentación de tus trabajadores. Te avisamos antes de que cualquier licencia caduque para que nunca pierdas una jornada de trabajo por falta de papeles.
+              </p>
+<ul class="space-y-md">
+<li class="flex gap-md">
+<span class="material-symbols-outlined text-primary-container" data-icon="check_circle">check_circle</span>
+<p class="text-body-md text-on-surface">Archivo digital centralizado y seguro</p>
+</li>
+<li class="flex gap-md">
+<span class="material-symbols-outlined text-primary-container" data-icon="check_circle">check_circle</span>
+<p class="text-body-md text-on-surface">Validación inteligente de documentos</p>
+</li>
+<li class="flex gap-md">
+<span class="material-symbols-outlined text-primary-container" data-icon="check_circle">check_circle</span>
+<p class="text-body-md text-on-surface">Historial completo de capacitaciones</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Beneficios Clave (Bento Grid) -->
+<section class="py-2xl" id="features">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="text-center mb-2xl space-y-md">
+<h2 class="font-headline-lg text-headline-lg">Potencia tu eficiencia operativa</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Diseñado específicamente para las necesidades del sector de reformas e instalaciones.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Feature 1 -->
+<div class="md:col-span-2 group glass-card p-lg rounded-2xl hover:border-primary-container/50 transition-all duration-300 luminous-shadow">
+<div class="flex flex-col md:flex-row gap-lg">
+<div class="flex-1 space-y-md">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Alertas en Tiempo Real</h3>
+<p class="text-body-md text-on-surface-variant">Notificaciones inteligentes enviadas automáticamente al administrador y al trabajador vía Email, WhatsApp o App. Nunca más una sorpresa de último minuto.</p>
+</div>
+<div class="flex-1 bg-surface-container rounded-xl p-md border border-outline-variant/10 overflow-hidden relative">
+<div class="space-y-sm">
+<div class="bg-white p-sm rounded-lg shadow-sm border-l-4 border-error transform group-hover:translate-x-2 transition-transform">
+<p class="text-label-md font-bold text-error">CADUCIDAD PRÓXIMA</p>
+<p class="text-body-md">Curso Prevención Riesgos - J. Pérez</p>
+</div>
+<div class="bg-white p-sm rounded-lg shadow-sm border-l-4 border-primary-container opacity-50">
+<p class="text-label-md font-bold text-primary-container">RENOVADO</p>
+<p class="text-body-md">Carné Instalador RITE - L. García</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="md:col-span-1 group glass-card p-lg rounded-2xl hover:border-primary-container/50 transition-all duration-300 luminous-shadow bg-primary-container text-on-primary-container">
+<div class="space-y-md h-full flex flex-col">
+<div class="w-12 h-12 bg-white/20 text-white rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-white">Subida Móvil Rápida</h3>
+<p class="text-body-md text-white/80 flex-1">Los técnicos pueden subir fotos de sus carnés renovados desde la furgoneta. Ahorra horas de oficina y evita el traspapeleo de documentos físicos.</p>
+<div class="pt-md">
+<div class="bg-white/10 rounded-lg p-base text-center text-label-md border border-white/20">Captura → Sube → Valida</div>
+</div>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="md:col-span-3 group glass-card p-lg rounded-2xl hover:border-primary-container/50 transition-all duration-300 luminous-shadow">
+<div class="grid md:grid-cols-2 gap-lg items-center">
+<div class="space-y-md">
+<div class="w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Dashboard de Cumplimiento</h3>
+<p class="text-body-md text-on-surface-variant">Visión global del estado de tu empresa en un solo vistazo. Gráficos de cumplimiento, filtros por obra o equipo, y exportación rápida para auditorías o licitaciones.</p>
+</div>
+<div class="grid grid-cols-3 gap-md">
+<div class="bg-surface-container p-md rounded-xl text-center border border-outline-variant/20">
+<div class="text-headline-md font-bold text-primary">98%</div>
+<div class="text-label-md text-on-surface-variant">Válidos</div>
+</div>
+<div class="bg-surface-container p-md rounded-xl text-center border border-outline-variant/20">
+<div class="text-headline-md font-bold text-error">2</div>
+<div class="text-label-md text-on-surface-variant">Caducados</div>
+</div>
+<div class="bg-surface-container p-md rounded-xl text-center border border-outline-variant/20">
+<div class="text-headline-md font-bold text-on-tertiary-fixed-variant">5</div>
+<div class="text-label-md text-on-surface-variant">Próximos</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-2xl relative overflow-hidden">
+<div class="max-w-5xl mx-auto px-margin-desktop">
+<div class="bg-primary-container rounded-[32px] p-xl text-center space-y-lg relative z-10 luminous-shadow">
+<h2 class="font-headline-lg text-headline-lg text-white">Únete a más de 500 empresas que ya confían en CertiAlert.</h2>
+<p class="font-body-lg text-body-lg text-white/80 max-w-xl mx-auto">
+              Empieza a gestionar tu documentación hoy mismo. Sin tarjeta de crédito, configuración en 5 minutos.
+            </p>
+<div class="flex flex-col sm:flex-row gap-md justify-center pt-md">
+<button class="bg-white text-primary px-xl py-md rounded-xl font-title-lg text-title-lg hover:bg-primary-fixed transition-colors active:scale-95">
+                Crear Cuenta Gratis
+              </button>
+<button class="border border-white/30 text-white px-xl py-md rounded-xl font-title-lg text-title-lg hover:bg-white/10 transition-colors">
+                Hablar con un Experto
+              </button>
+</div>
+</div>
+</div>
+<!-- Abstract background decoration -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 opacity-30">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-container rounded-full blur-[120px]"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-margin-desktop py-xl flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary font-headline-md text-headline-md font-bold" data-icon="verified">verified</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">CertiAlert</span>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-md text-body-md" href="#">Product</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-md text-body-md" href="#">Solutions</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-md text-body-md" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-md text-body-md" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-body-md text-body-md" href="#">Terms</a>
+</div>
+<div class="text-on-surface-variant font-body-md text-body-md">
+          © 2024 CertiAlert. All rights reserved.
+        </div>
+</div>
+</footer>
+<script>
+      // Subtle scroll effect for Header
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 10) {
+          header.classList.add('shadow-md');
+          header.classList.replace('bg-surface/80', 'bg-surface/95');
+        } else {
+          header.classList.remove('shadow-md');
+          header.classList.replace('bg-surface/95', 'bg-surface/80');
+        }
+      });
+
+      // Simple reveal animation
+      const observerOptions = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('section > div').forEach(el => {
+        el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+        observer.observe(el);
+      });
+    </script>
+</body></html>
